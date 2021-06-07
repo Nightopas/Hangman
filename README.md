@@ -1,2 +1,2 @@
 # Hangman
-[![Build Status](https://travis-ci.com/Nightopas/Hangman.svg?branch=master)](https://travis-ci.com/Nightopas/Hangman)
+[![Build Status](https://travis-ci.com/Nightopas/Hangman.svg?branch=issue-4)](https://travis-ci.com/Nightopas/Hangman)
