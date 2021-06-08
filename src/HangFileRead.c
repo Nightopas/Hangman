@@ -3,10 +3,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char** read_file(char* file_path, int max_word_length)
+char **read_file(char *file_path, int max_word_length)
 {
     int lines_count = 0;
-    FILE* pointer_hangman_text_file = fopen(file_path, "rb");
+    FILE *pointer_hangman_text_file = fopen(file_path, "rb");
     if (pointer_hangman_text_file == NULL) {
         printf("FOPEN ERROR\n");
         return NULL;
@@ -21,10 +21,10 @@ char** read_file(char* file_path, int max_word_length)
         printf("FOPEN ERROR\n");
         return NULL;
     }
-    char** hang_word_array;
-    hang_word_array = (char**)malloc(lines_count * sizeof(char*));
+    char **hang_word_array;
+    hang_word_array = (char **)malloc(lines_count * sizeof(char *));
     for (int i = 0; i < lines_count; i++) {
-        hang_word_array[i] = (char*)malloc(sizeof(char) * max_word_length);
+        hang_word_array[i] = (char *)malloc(sizeof(char) * max_word_length);
         fgets(hang_word_array[i], max_word_length, pointer_hangman_text_file);
     }
     fclose(pointer_hangman_text_file);
