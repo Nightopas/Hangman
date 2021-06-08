@@ -1,8 +1,8 @@
-main: build/src/main.o build/src/HangFileRead.o build/src/HangWordStruct.o build/src/HangConsoleDraw.o build/src/HangRandWord.o
-	gcc -Wall -Werror build/src/HangFileRead.o build/src/HangWordStruct.o build/src/HangConsoleDraw.o build/src/HangRandWord.o build/src/main.o -o bin/Hangman
+main: build/src/main.o build/src/HangFileRead.o build/src/HangWordStruct.o build/src/HangConsoleDraw.o build/src/HangRandWord.o build/src/HangWordCheck.o
+	gcc -Wall -Werror build/src/HangFileRead.o build/src/HangWordStruct.o build/src/HangConsoleDraw.o build/src/HangRandWord.o build/src/HangWordCheck.o build/src/main.o -o bin/Hangman
 
-test: build/test/main.o build/test/HangFileRead.o build/test/HangWordStruct.o build/test/HangConsoleDraw.o build/test/HangRandWord.o
-	gcc -Wall -Werror build/test/main.o build/test/HangFileRead.o build/test/HangWordStruct.o build/test/HangConsoleDraw.o build/test/HangRandWord.o -o bin/test
+test: build/test/main.o build/test/HangFileRead.o build/test/HangWordStruct.o build/test/HangConsoleDraw.o build/test/HangRandWord.o build/test/HangWordCheck.o
+	gcc -Wall -Werror build/test/main.o build/test/HangFileRead.o build/test/HangWordStruct.o build/test/HangConsoleDraw.o build/test/HangRandWord.o build/test/HangWordCheck.o -o bin/test
 
 play: bin/main
 	./bin/Hangman
