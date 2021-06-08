@@ -14,7 +14,7 @@ build/src/HangFileRead.o: src/HangFileRead.c
 	gcc -MP -MMD -Wall -Werror -c src/HangFileRead.c -o build/src/HangFileRead.o
 
 build/test/main.o: test/main.c
-	gcc -MP -MMD -Wall -Werror -c test/main.c -o build/test/main.o
+	gcc -MP -MMD -Wall -Werror -c test/test.c -o build/test/main.o
 
 build/test/HangFileRead.o: src/HangFileRead.c
 	gcc -MP -MMD -Wall -Werror -c src/HangFileRead.c -o build/test/HangFileRead.o
