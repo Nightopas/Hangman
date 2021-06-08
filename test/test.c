@@ -2,6 +2,7 @@
 
 #include "HangConsoleDraw.h"
 #include "HangFileRead.h"
+#include "HangRandWord.h"
 #include "HangWordStruct.h"
 #include <ctest.h>
 #include <stdio.h>
