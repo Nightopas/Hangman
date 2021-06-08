@@ -13,6 +13,24 @@ CTEST(filenametest, Emptyfilename)
     ASSERT_NULL(read_file(filename, 10));
 }
 
+CTEST(randwordtest, Emptywordarray)
+{
+    int lines_count = 40;
+    char **word_array = NULL;
+    ASSERT_NULL(hangman_get_randomized_word(
+            read_file(word_array, 10), lines_count));
+}
+
+CTEST(randwordtest, Emptyword)
+{
+    int lines_count = 2;
+    char **word_array = (char **)malloc(lines_count * sizeof(char *));
+    word_array[0] = NULL;
+    word_array[1] = NULL;
+    ASSERT_NULL(hangman_get_randomized_word(
+            read_file(word_array, 10), lines_count));
+}
+
 void test_hangman_draw_console()
 {
     for (int i = 0; i < 8; i++) {
