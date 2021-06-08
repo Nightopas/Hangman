@@ -11,7 +11,7 @@ build/src/main.o: src/main.c
 	gcc -MP -MMD -Wall -Werror -c src/main.c -o build/src/main.o
 
 build/test/main.o: test/main.c
-	gcc -MP -MMD -Wall -Werror -c test/main.c -o build/test/main.o
+	gcc -MP -MMD -Wall -Werror -c test/test.c -o build/test/main.o
 
 .PHONY: clean
 
