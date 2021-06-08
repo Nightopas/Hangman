@@ -1,4 +1,5 @@
 #include "HangRandWord.h"
+#include "HangWordStruct.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -18,7 +19,7 @@ HangLetter *hangman_get_randomized_word(char **word_array, int word_count)
     }
     int word_length = strlen(word_array[word_number]);
     HangLetter *randomized_word
-            = (HangLetter *)malloc(word_length * sizeof(HangLetter));
+            = (HangLetter *)malloc(sizeof(HangLetter) * word_length);
     for (int i = 0; i < word_length; i++) {
         randomized_word[i].h_letter = word_array[word_number][i];
         randomized_word[i].h_flag = 0;
