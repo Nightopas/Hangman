@@ -1,5 +1,4 @@
 #include "HangWordStatus.h"
-#include "HangWordStruct.h"
 #include <stdio.h>
 
 int draw_hang_word_status(HangLetter *game_word)
@@ -15,7 +14,7 @@ int draw_hang_word_status(HangLetter *game_word)
         } else if (game_word[i].h_flag == 1) {
             printf("%c ", game_word[i].h_letter);
         } else {
-            printf("ERROR! GAME_WORD %d LETTER HAS WRONG FLAG!\n", i);
+            printf("ERROR! GAME_WORD %d LETTER HAS WRONG FLAG!\n", i + 1);
             return -1;
         }
         i++;
