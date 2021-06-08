@@ -16,7 +16,7 @@ int draw_hang_word_status(HangLetter *game_word)
             printf("%c ", game_word[i].h_letter);
         } else {
             printf("ERROR! GAME_WORD %d LETTER HAS WRONG FLAG!\n", i);
-            return -1
+            return -1;
         }
         i++;
     }
