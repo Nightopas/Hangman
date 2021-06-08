@@ -17,7 +17,8 @@ HangLetter *hangman_get_randomized_word(char **word_array, int word_count)
         printf("ERROR WORD POINTER IS NULL OR WORD_NUMBER IS OUT OF BOUNDS!");
         return NULL;
     }
-    int word_length = strlen(word_array[word_number]);
+    int word_length = strlen(word_array[word_number]) - 1;
+    printf("%d\n", word_length);
     HangLetter *randomized_word
             = (HangLetter *)malloc(sizeof(HangLetter) * word_length);
     for (int i = 0; i < word_length; i++) {
