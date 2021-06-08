@@ -10,10 +10,6 @@ play: bin/main
 build/src/main.o: src/main.c
 	gcc -MP -MMD -Wall -Werror -c src/main.c -o build/src/main.o
 
-<<<<<<< HEAD
-build/test/main.o: test/test.c	
-	gcc -I thirdparty -I src -MP -MMD -Wall -Werror -c test/test.c -o build/test/main.o
-=======
 build/src/HangFileRead.o: src/HangFileRead.c
 	gcc -MP -MMD -Wall -Werror -c src/HangFileRead.c -o build/src/HangFileRead.o
 
@@ -22,8 +18,6 @@ build/test/main.o: test/test.c
 
 build/test/HangFileRead.o: src/HangFileRead.c
 	gcc -MP -MMD -Wall -Werror -c src/HangFileRead.c -o build/test/HangFileRead.o
-
->>>>>>> issue-1
 
 .PHONY: clean
 
