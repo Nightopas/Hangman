@@ -21,4 +21,5 @@ int draw_hang_word_status(HangLetter *game_word)
         i++;
     }
     printf("\n");
+    return 0;
 }
