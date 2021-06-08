@@ -2,6 +2,7 @@
 
 #include "HangConsoleDraw.h"
 #include "HangFileRead.h"
+#include "HangGrammarCheck.h"
 #include "HangRandWord.h"
 #include "HangWordStruct.h"
 #include <ctest.h>
@@ -29,6 +30,27 @@ CTEST(randwordtest, Emptyword)
     word_array[0] = NULL;
     word_array[1] = NULL;
     ASSERT_NULL(hangman_get_randomized_word(word_array, lines_count));
+}
+
+CTEST(gramcheck, wrong_input1)
+{
+    for (int i = 0; i < 97; i++) {
+        ASSERT_EQUAL(-1, grammar_check((char)i));
+    }
+}
+
+CTEST(gramcheck, wrong_input2)
+{
+    for (int i = 123; i < 128; i++) {
+        ASSERT_EQUAL(-1, grammar_check((char)i));
+    }
+}
+
+CTEST(gramcheck, right_input)
+{
+    for (int i = 97; i < 123; i++) {
+        ASSERT_EQUAL(0, grammar_check((char)i));
+    }
 }
 
 void test_hangman_draw_console()
