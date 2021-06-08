@@ -16,5 +16,6 @@ build/test/main.o: test/main.c
 .PHONY: clean
 
 clean:
-	rm -rf build/*
+	rm -rf build/src/*
+	rm -rf build/test/*
 	rm -rf bin/*
