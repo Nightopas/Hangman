@@ -22,6 +22,9 @@ build/src/HangConsoleDraw.o: src/HangConsoleDraw.c
 build/src/HangRandWord.o: src/HangRandWord.c
 	gcc -MP -MMD -Wall -Werror -c src/HangRandWord.c -o build/src/HangRandWord.o
 
+build/src/HangWordCheck.o: src/HangWordCheck.c
+	gcc -MP -MMD -Wall -Werror -c src/HangWordCheck.c -o build/src/HangWordCheck.o
+
 build/test/main.o: test/test.c
 	gcc -I thirdparty -I src -MP -MMD -Wall -Werror -c test/test.c -o build/test/main.o
 
@@ -36,6 +39,9 @@ build/test/HangConsoleDraw.o: src/HangConsoleDraw.c
 
 build/test/HangRandWord.o: src/HangRandWord.c
 	gcc -MP -MMD -Wall -Werror -c src/HangRandWord.c -o build/test/HangRandWord.o
+
+build/test/HangWordCheck.o: src/HangWordCheck.c
+	gcc -MP -MMD -Wall -Werror -c src/HangWordCheck.c -o build/test/HangWordCheck.o
 
 .PHONY: clean
 
