@@ -9,6 +9,7 @@ void test_hangman_draw_console()
         system("clear");
         hangman_draw_console(i);
     }
+    system("clear");
 }
 
 int main(int argc, const char** argv)
