@@ -1,8 +1,8 @@
-main: build/src/main.o build/src/HangFileRead.o build/src/HangWordStruct.o
-	gcc -Wall -Werror build/src/HangFileRead.o build/src/HangWordStruct.o build/src/main.o -o bin/Hangman
+main: build/src/main.o build/src/HangFileRead.o build/src/HangWordStruct.o build/src/HangConsoleDraw.o
+	gcc -Wall -Werror build/src/HangFileRead.o build/src/HangWordStruct.o build/src/HangConsoleDraw.o build/src/main.o -o bin/Hangman
 
-test: build/test/main.o build/test/HangFileRead.o build/test/HangWordStruct.o
-	gcc -Wall -Werror build/test/main.o build/test/HangFileRead.o build/test/HangWordStruct.o -o bin/test
+test: build/test/main.o build/test/HangFileRead.o build/test/HangWordStruct.o build/test/HangConsoleDraw.o
+	gcc -Wall -Werror build/test/main.o build/test/HangFileRead.o build/test/HangWordStruct.o build/test/HangConsoleDraw.o -o bin/test
 
 play: bin/main
 	./bin/Hangman
@@ -16,6 +16,9 @@ build/src/HangFileRead.o: src/HangFileRead.c
 build/src/HangWordStruct.o: src/HangWordStruct.c
 	gcc -MP -MMD -Wall -Werror -c src/HangWordStruct.c -o build/src/HangWordStruct.o
 
+build/src/HangConsoleDraw.o: src/HangConsoleDraw.c
+	gcc -MP -MMD -Wall -Werror -c src/HangConsoleDraw.c -o build/test/HangConsoleDraw.o
+
 build/test/main.o: test/test.c
 	gcc -I thirdparty -I src -MP -MMD -Wall -Werror -c test/test.c -o build/test/main.o
 
@@ -24,6 +27,9 @@ build/test/HangFileRead.o: src/HangFileRead.c
 
 build/test/HangWordStruct.o: src/HangWordStruct.c
 	gcc -MP -MMD -Wall -Werror -c src/HangWordStruct.c -o build/test/HangWordStruct.o
+
+build/test/HangConsoleDraw.o: src/HangConsoleDraw.c
+	gcc -MP -MMD -Wall -Werror -c src/HangConsoleDraw.c -o build/test/HangConsoleDraw.o
 
 .PHONY: clean
 
