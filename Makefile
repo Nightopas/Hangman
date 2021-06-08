@@ -17,7 +17,7 @@ build/src/HangWordStruct.o: src/HangWordStruct.c
 	gcc -MP -MMD -Wall -Werror -c src/HangWordStruct.c -o build/src/HangWordStruct.o
 
 build/src/HangConsoleDraw.o: src/HangConsoleDraw.c
-	gcc -MP -MMD -Wall -Werror -c src/HangConsoleDraw.c -o build/test/HangConsoleDraw.o
+	gcc -MP -MMD -Wall -Werror -c src/HangConsoleDraw.c -o build/src/HangConsoleDraw.o
 
 build/src/HangRandWord.o: src/HangRandWord.c
 	gcc -MP -MMD -Wall -Werror -c src/HangRandWord.c -o build/src/HangRandWord.o
