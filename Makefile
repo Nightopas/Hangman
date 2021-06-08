@@ -2,7 +2,7 @@ main: build/src/main.o build/src/HangFileRead.o
 	gcc -Wall -Werror build/src/HangFileRead.o build/src/main.o -o bin/Hangman
 
 test: build/test/main.o build/test/HangFileRead.o
-	gcc -Wall -Werror build/test/main.o -o bin/test
+	gcc -Wall -Werror build/test/main.o build/test/HangFileRead.o -o bin/test
 
 play: bin/main
 	./bin/Hangman
