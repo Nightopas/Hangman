@@ -5,6 +5,7 @@
 #include "HangGrammarCheck.h"
 #include "HangRandWord.h"
 #include "HangWordCheck.h"
+#include "HangWordStatus.h"
 #include "HangWordStruct.h"
 #include <ctest.h>
 #include <stdio.h>
@@ -119,6 +120,43 @@ CTEST(gamewordtest, Emptyword)
 {
     HangLetter *test_word = NULL;
     ASSERT_EQUAL(-1, hang_word_check(test_word, 'a'));
+}
+
+CTEST(wordstatustest, Emptyword)
+{
+    HangLetter *test_word = NULL;
+    ASSERT_EQUAL(-1, draw_hang_word_status(test_word));
+}
+
+CTEST(wordstatustest, Normalinput)
+{
+    int word_length = 6;
+    HangLetter *test_word
+            = (HangLetter *)malloc(sizeof(HangLetter) * word_length);
+    test_word[0].h_letter = 'a';
+    test_word[1].h_letter = 'b';
+    test_word[2].h_letter = 'a';
+    test_word[3].h_letter = 'c';
+    test_word[4].h_letter = 'a';
+    test_word[5].h_letter = 'z';
+    hang_word_check(test_word, 'a');
+    ASSERT_EQUAL(0, draw_hang_word_status(test_word));
+}
+
+CTEST(wordstatustest, Wrongflag)
+{
+    int word_length = 6;
+    HangLetter *test_word
+            = (HangLetter *)malloc(sizeof(HangLetter) * word_length);
+    test_word[0].h_letter = 'a';
+    test_word[1].h_letter = 'b';
+    test_word[2].h_letter = 'a';
+    test_word[3].h_letter = 'c';
+    test_word[4].h_letter = 'a';
+    test_word[5].h_letter = 'z';
+    hang_word_check(test_word, 'a');
+    test_word[5].h_flag = 2;
+    ASSERT_EQUAL(-1, draw_hang_word_status(test_word));
 }
 
 void test_hangman_draw_console()
