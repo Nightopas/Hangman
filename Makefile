@@ -1,8 +1,8 @@
-main: build/src/main.o build/src/HangFileRead.o build/src/HangWordStruct.o build/src/HangConsoleDraw.o build/src/HangRandWord.o build/src/HangGrammarCheck.o build/src/HangWordCheck.o build/src/HangWordStatus.o
-	gcc -Wall -Werror build/src/HangFileRead.o build/src/HangWordStruct.o build/src/HangConsoleDraw.o build/src/HangRandWord.o build/src/HangGrammarCheck.o build/src/HangWordCheck.o build/src/HangWordStatus.o build/src/main.o -o bin/Hangman
+main: build/src/main.o build/src/HangFileRead.o build/src/HangWordStruct.o build/src/HangConsoleDraw.o build/src/HangRandWord.o build/src/HangGrammarCheck.o build/src/HangWordCheck.o build/src/HangWordStatus.o build/src/HangGameCycle.o
+	gcc -Wall -Werror build/src/HangFileRead.o build/src/HangWordStruct.o build/src/HangConsoleDraw.o build/src/HangRandWord.o build/src/HangGrammarCheck.o build/src/HangWordCheck.o build/src/HangWordStatus.o build/src/HangGameCycle.o build/src/main.o -o bin/Hangman
 
-test: build/test/main.o build/test/HangFileRead.o build/test/HangWordStruct.o build/test/HangConsoleDraw.o build/test/HangRandWord.o build/test/HangGrammarCheck.o build/test/HangWordCheck.o build/test/HangWordStatus.o
-	gcc -Wall -Werror build/test/main.o build/test/HangFileRead.o build/test/HangWordStruct.o build/test/HangConsoleDraw.o build/test/HangRandWord.o build/test/HangGrammarCheck.o build/test/HangWordCheck.o build/test/HangWordStatus.o -o bin/test
+test: build/test/main.o build/test/HangFileRead.o build/test/HangWordStruct.o build/test/HangConsoleDraw.o build/test/HangRandWord.o build/test/HangGrammarCheck.o build/test/HangWordCheck.o build/test/HangWordStatus.o build/test/HangGameCycle.o
+	gcc -Wall -Werror build/test/main.o build/test/HangFileRead.o build/test/HangWordStruct.o build/test/HangConsoleDraw.o build/test/HangRandWord.o build/test/HangGrammarCheck.o build/test/HangWordCheck.o build/test/HangWordStatus.o build/test/HangGameCycle.o -o bin/test
 
 play: main
 	./bin/Hangman
@@ -31,6 +31,9 @@ build/src/HangWordCheck.o: src/HangWordCheck.c
 build/src/HangWordStatus.o: src/HangWordStatus.c
 	gcc -MP -MMD -Wall -Werror -c src/HangWordStatus.c -o build/src/HangWordStatus.o
 
+build/src/HangGameCycle.o: src/HangGameCycle.c
+	gcc -MP -MMD -Wall -Werror -c src/HangGameCycle.c -o build/src/HangGameCycle.o
+
 build/test/main.o: test/test.c
 	gcc -I thirdparty -I src -MP -MMD -Wall -Werror -c test/test.c -o build/test/main.o
 
@@ -54,6 +57,9 @@ build/test/HangWordCheck.o: src/HangWordCheck.c
 
 build/test/HangWordStatus.o: src/HangWordStatus.c
 	gcc -MP -MMD -Wall -Werror -c src/HangWordStatus.c -o build/test/HangWordStatus.o
+
+build/test/HangGameCycle.o: src/HangGameCycle.c
+	gcc -MP -MMD -Wall -Werror -c src/HangGameCycle.c -o build/test/HangGameCycle.o
 
 .PHONY: clean
 
