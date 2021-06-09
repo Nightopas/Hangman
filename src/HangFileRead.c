@@ -5,22 +5,24 @@
 
 char **read_file(char *file_path, int max_word_length)
 {
+    max_word_length += 1;
     int lines_count = 0;
     FILE *pointer_hangman_text_file = fopen(file_path, "rb");
     if (pointer_hangman_text_file == NULL) {
         printf("FOPEN ERROR\n");
         return NULL;
     }
-    while (!feof(pointer_hangman_text_file)) {
-        if (fgetc(pointer_hangman_text_file) == '\n')
+    char *current_char = (char *)malloc(sizeof(char) * 2);
+    while ((!feof(pointer_hangman_text_file))
+           && (!ferror(pointer_hangman_text_file))) {
+        *current_char
+                = fgetc(pointer_hangman_text_file); // malloc(): invalid next
+                                                    // size (unsorted)
+        if (*current_char == '\n') {
             lines_count++;
+        }
     }
-    fclose(pointer_hangman_text_file);
-    pointer_hangman_text_file = fopen(file_path, "rb");
-    if (pointer_hangman_text_file == NULL) {
-        printf("FOPEN ERROR\n");
-        return NULL;
-    }
+    fseek(pointer_hangman_text_file, 0, SEEK_SET);
     char **hang_word_array;
     hang_word_array = (char **)malloc(lines_count * sizeof(char *));
     for (int i = 0; i < lines_count; i++) {
