@@ -5,10 +5,10 @@
 
 int hang_word_check(HangLetter *game_word, char user_input)
 {
-    int result = -1;
+    int result = 1;
     if (game_word == NULL) {
         printf("ERROR GAME_WORD IS NULL!\n");
-        return result;
+        return -1;
     }
     int i = 0;
     while (game_word[i].h_letter) {
@@ -21,7 +21,6 @@ int hang_word_check(HangLetter *game_word, char user_input)
     if (result == 0) {
         return result;
     } else {
-        result = 1;
         return result;
     }
 }
