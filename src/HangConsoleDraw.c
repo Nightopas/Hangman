@@ -85,6 +85,7 @@ void hangman_draw_console(int game_state)
         printf("###########|\n");
         printf("============\n");
     } else {
-        printf("\nGAME STATE IS WRONG!!!");
+        printf("\nGAME STATE IS WRONG!!!\n");
+        return;
     }
 }
