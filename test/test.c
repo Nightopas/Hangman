@@ -2,6 +2,7 @@
 
 #include "HangConsoleDraw.h"
 #include "HangFileRead.h"
+#include "HangGameCycle.h"
 #include "HangGrammarCheck.h"
 #include "HangRandWord.h"
 #include "HangWordCheck.h"
@@ -157,6 +158,43 @@ CTEST(wordstatustest, Wrongflag)
     hang_word_check(test_word, 'a');
     test_word[5].h_flag = 2;
     ASSERT_EQUAL(-1, draw_hang_word_status(test_word));
+}
+
+CTEST(gamecycle, Emptyword)
+{
+    int game_state = 0;
+    HangLetter *test_word = NULL;
+    ASSERT_EQUAL(-1, game_cycle(test_word, &game_state));
+}
+
+CTEST(gamecycle, WrongState1)
+{
+    int word_length = 6;
+    int game_state = -1;
+    HangLetter *test_word
+            = (HangLetter *)malloc(sizeof(HangLetter) * word_length);
+    test_word[0].h_letter = 'a';
+    test_word[1].h_letter = 'b';
+    test_word[2].h_letter = 'a';
+    test_word[3].h_letter = 'c';
+    test_word[4].h_letter = 'a';
+    test_word[5].h_letter = 'z';
+    ASSERT_EQUAL(-1, game_cycle(test_word, &game_state));
+}
+
+CTEST(gamecycle, WrongState2)
+{
+    int word_length = 6;
+    int game_state = 8;
+    HangLetter *test_word
+            = (HangLetter *)malloc(sizeof(HangLetter) * word_length);
+    test_word[0].h_letter = 'a';
+    test_word[1].h_letter = 'b';
+    test_word[2].h_letter = 'a';
+    test_word[3].h_letter = 'c';
+    test_word[4].h_letter = 'a';
+    test_word[5].h_letter = 'z';
+    ASSERT_EQUAL(-1, game_cycle(test_word, &game_state));
 }
 
 void test_hangman_draw_console()
