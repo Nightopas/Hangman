@@ -21,7 +21,7 @@ HangLetter *hangman_get_randomized_word(char **word_array, int word_count)
     HangLetter *randomized_word
             = (HangLetter *)malloc(sizeof(HangLetter) * word_length);
     int i = 0;
-    for (int i = 0; i < word_length; i++) {
+    for (i = 0; i <= word_length; i++) {
         randomized_word[i].h_letter = word_array[word_number][i];
         randomized_word[i].h_flag = 0;
     }
