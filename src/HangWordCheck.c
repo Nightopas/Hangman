@@ -17,9 +17,5 @@ int hang_word_check(HangLetter *game_word, char user_input)
         }
         i++;
     }
-    if (result == 0) {
-        return result;
-    } else {
-        return result;
-    }
+    return result;
 }
