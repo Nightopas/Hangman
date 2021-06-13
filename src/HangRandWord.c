@@ -8,13 +8,11 @@
 HangLetter *hangman_get_randomized_word(char **word_array, int word_count)
 {
     if (word_array == NULL) {
-        printf("ERROR WORD_ARRAY POINTER IS NULL!\n");
         return NULL;
     }
     srand(time(NULL));
     int word_number = rand() % word_count;
     if (word_array[word_number] == NULL) {
-        printf("ERROR WORD POINTER IS NULL OR WORD_NUMBER IS OUT OF BOUNDS!\n");
         return NULL;
     }
     int word_length = strlen(word_array[word_number]) - 1;

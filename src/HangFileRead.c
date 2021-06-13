@@ -9,18 +9,18 @@ char **read_file(char *file_path, int max_word_length)
     int lines_count = 0;
     FILE *pointer_hangman_text_file = fopen(file_path, "rb");
     if (pointer_hangman_text_file == NULL) {
-        printf("FOPEN ERROR\n");
         return NULL;
     }
-    char *current_char = (char *)malloc(sizeof(char) * 2);
     while ((!feof(pointer_hangman_text_file))
            && (!ferror(pointer_hangman_text_file))) {
+        char *current_char = (char *)malloc(sizeof(char) * 2);
         *current_char
                 = fgetc(pointer_hangman_text_file); // malloc(): invalid next
                                                     // size (unsorted)
         if (*current_char == '\n') {
             lines_count++;
         }
+        free(current_char);
     }
     fseek(pointer_hangman_text_file, 0, SEEK_SET);
     char **hang_word_array;

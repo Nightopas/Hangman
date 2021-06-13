@@ -4,7 +4,6 @@
 int draw_hang_word_status(HangLetter *game_word)
 {
     if (game_word == NULL) {
-        printf("ERROR! GAME_WORD IS NULL!\n");
         return -1;
     }
     int win_flag = 1;
@@ -16,7 +15,6 @@ int draw_hang_word_status(HangLetter *game_word)
         } else if (game_word[i].h_flag == 1) {
             printf("%c ", game_word[i].h_letter);
         } else {
-            printf("ERROR! GAME_WORD %d LETTER HAS WRONG FLAG!\n", i);
             return -1;
         }
         i++;

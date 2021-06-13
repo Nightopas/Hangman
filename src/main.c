@@ -8,6 +8,7 @@
 #include "HangWordStruct.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 HangLetter *word_initialization(char **word_array)
 {
@@ -30,6 +31,7 @@ int main()
                 break;
             }
         }
+        free(game_guess_word);
         system("clear");
         if (game_result == 0) {
             hangman_draw_console(game_state);
@@ -38,17 +40,14 @@ int main()
             hangman_draw_console(game_state);
             printf("\nCONGRATULATIONS!!!\n YOU WIN!\n");
         }
-        printf("\nEXIT? y/n\n");
         char exit_input;
-        scanf(" %c", &exit_input);
-        while (program_state) {
-            if (exit_input == 'y') {
-                program_state = 0;
-            } else if (exit_input == 'n') {
-                break;
-            } else {
-                scanf(" %c", &exit_input);
-            }
+        while (!((exit_input == 'y') || (exit_input == 'n'))) {
+            printf("\nEXIT? y/n\n");
+            scanf(" %c", &exit_input);
+        }
+        if (exit_input == 'y') {
+            program_state = 0;
         }
     }
+    free(word_array);
 }

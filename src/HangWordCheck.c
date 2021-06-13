@@ -7,7 +7,6 @@ int hang_word_check(HangLetter *game_word, char user_input)
 {
     int result = 1;
     if (game_word == NULL) {
-        printf("ERROR GAME_WORD IS NULL!\n");
         return -1;
     }
     int i = 0;
